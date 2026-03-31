@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Irina Stănescu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-body: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+  --bg: #faf7f5;
+  --surface: #ffffff;
+  --surface2: #f5f0ec;
+  --border: rgba(0,0,0,0.08);
+  --border-bright: rgba(0,0,0,0.14);
+  --text: #292017;
+  --text-dim: #8a7e72;
+  --accent: #2d8a7e;
+  --accent-dim: rgba(45,138,126,0.08);
+  --purple: #8b80a8;
+  --purple-dim: rgba(139,128,168,0.08);
+  --teal: #2d8a7e;
+  --teal-dim: rgba(45,138,126,0.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1612;
+    --surface: #231d1a;
+    --surface2: #2e2622;
+    --border: rgba(255,255,255,0.06);
+    --border-bright: rgba(255,255,255,0.12);
+    --text: #ede5dd;
+    --text-dim: #a69889;
+    --accent: #5eead4;
+    --accent-dim: rgba(94,234,212,0.1);
+    --purple: #b8a9d4;
+    --purple-dim: rgba(184,169,212,0.1);
+    --teal: #5eead4;
+    --teal-dim: rgba(94,234,212,0.08);
+  }
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  background-image: none;
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 18px;
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: linear-gradient(135deg, rgba(139,128,168,0.06) 0%, rgba(45,138,126,0.04) 50%, rgba(30,58,95,0.03) 100%);
+  }
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #8b80a8 0%, #5a7a9a 40%, #2d8a7e 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.5s ease both;
+}
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+.header .subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+}
+.header .links {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.header .links a {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.header .links a:hover {
+  border-bottom-color: rgba(255,255,255,0.9);
+}
+
+/* Project cards */
+.project {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.5s ease both;
+}
+.project:nth-child(1) { animation-delay: 0.1s; }
+.project:nth-child(2) { animation-delay: 0.2s; }
+
+.project-media {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.project-media img,
+.project-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-media .placeholder {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.project-body {
+  padding: 1.5rem;
+}
+.project-body h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.project-body p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.tag--teal {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border-color: color-mix(in srgb, var(--teal) 15%, transparent);
+}
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+.project-links a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  transition: all 0.2s;
+}
+.project-links a:hover {
+  background: var(--accent-dim);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Irina Stănescu</h1>
+  <div class="subtitle">Staff Software Engineer &middot; Engineering Leader &middot; Coach</div>
+  <div class="links">
+    <a href="https://github.com/irinastanescu">GitHub</a>
+    <a href="https://www.thecaringtechie.com">The Caring Techie</a>
+    <a href="https://www.linkedin.com/in/irinastanescu/">LinkedIn</a>
+  </div>
+</div>
+
+<!-- Project 1: Coaching Portal -->
+<div class="project">
+  <div class="project-media">
+    <!-- Replace this div with: <img src="coaching-portal.gif" alt="Coaching Portal demo"> -->
+    <span class="placeholder">gif / screenshot placeholder</span>
+  </div>
+  <div class="project-body">
+    <h2>Coaching Portal</h2>
+    <p>Helps me and my clients stay in touch and aligned on goals, progress, and action items from session to session. Clients can also access the resources they need from the coaching materials I provide.</p>
+    <div class="project-tags">
+      <span class="tag">Full-Stack</span>
+      <span class="tag">React</span>
+      <span class="tag">Node.js</span>
+      <span class="tag tag--teal">Coaching</span>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/irinastanescu/coaching-portal">Source Code</a>
+    </div>
+  </div>
+</div>
+
+<!-- Project 2: Caring Techie MCP -->
+<div class="project">
+  <div class="project-media">
+    <!-- Replace this div with: <img src="caring-techie-mcp.gif" alt="Caring Techie MCP demo"> -->
+    <span class="placeholder">gif / screenshot placeholder</span>
+  </div>
+  <div class="project-body">
+    <h2>The Caring Techie MCP</h2>
+    <p>Helps clients and subscribers access and interact with my content through an AI-powered interface using the Model Context Protocol.</p>
+    <div class="project-tags">
+      <span class="tag">MCP</span>
+      <span class="tag">AI</span>
+      <span class="tag">Python</span>
+      <span class="tag tag--teal">Content</span>
+    </div>
+    <div class="project-links">
+      <a href="https://github.com/irinastanescu/caring-techie-mcp">Source Code</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Built with care &middot; 2026
+</div>
+
+</div>
+</body>
+</html>
